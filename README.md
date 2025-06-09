@@ -99,8 +99,11 @@ An advanced Maya tool for automating Arnold shader networks with intelligent tex
 > Mac: ~/Library/Preferences/Autodesk/maya/[version]/scripts/
 > 
 > Linux: ~/maya/[version]/scripts/
+> 
+3. I included an icon image, save separately to:
+> ~\maya\2024\prefs\icons 
 
-5. Run in Maya Script Editor the following ( Drag and drop the code to your Maya shelf for quick access )
+4. Run in Maya Script Editor the following ( Drag and drop the code to your Maya shelf for quick access )
 
 ```python
 import autoShaderTool
