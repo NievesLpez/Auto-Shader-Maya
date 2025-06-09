@@ -1,5 +1,5 @@
 """
-Main module for Auto Shader Tool - Compact Version
+Main module for Auto Shader Tool 
 
 Author: Nieves Yashuang Lopez
 Version: 1.0
