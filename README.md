@@ -100,7 +100,7 @@ An advanced Maya tool for automating Arnold shader networks with intelligent tex
 > 
 > Linux: ~/maya/[version]/scripts/
 > 
-3. I included an icon image, save separately to:
+3. An icon image is included, save separately to:
 > ~\maya\2024\prefs\icons 
 
 4. Run in Maya Script Editor the following ( Drag and drop the code to your Maya shelf for quick access )
