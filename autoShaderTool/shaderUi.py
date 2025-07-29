@@ -274,7 +274,7 @@ class AutoShaderTool(QDialog):
         updateScroll.setWidget(updateWidget)
         updateLayout.addWidget(updateScroll)
         
-        # Update buttons - CAMBIADO PARA SER IGUAL A LA PRIMERA PESTAÑA
+        # Update buttons 
         updateBtnRow = QHBoxLayout()
         self.clearUpdatePathsBtn = QPushButton("Clear All")
         self.updateMaterialBtn = QPushButton("Update Material")
@@ -321,7 +321,7 @@ class AutoShaderTool(QDialog):
         self.updateMaterialBtn.clicked.connect(self.updateExistingMaterial)
         self.updateUvButtonGroup.buttonClicked.connect(self.onUpdateUvModeChanged)
         
-        # Browse buttons - dynamic connection
+        # Browse buttons
         for texType in self.textureTypes:
             getattr(self, f"{texType}BrowseBtn").clicked.connect(
                 lambda checked=False, t=texType: self.browseTexture(getattr(self, f"{t}PathEdit")))
@@ -338,11 +338,11 @@ class AutoShaderTool(QDialog):
 
     def onUpdateDirectoryDropped(self, directory):
         self.updateUpdateStatus(f"Update directory: {os.path.basename(directory)}")
-        # Auto-detectar texturas para update si el shader creator está disponible
+        # Auto-detectar textures para update si el shader creator está disponible
         if self.shaderCreator:
             self.autoDetectForUpdate()
 
-    # Main functionality methods (simplified)
+    # Main functionality methods 
     def browseDirectory(self):
         directory = QFileDialog.getExistingDirectory(self, "Select Texture Directory")
         if directory:
@@ -398,7 +398,7 @@ class AutoShaderTool(QDialog):
                 getattr(self, f"{fieldName}PathEdit").setText(path)
                 found.append(texType)
         
-        # Only show message if textures found or error
+        # Error management
         if found:
             self.updateStatus(f"Found {len(found)} textures")
         else:
@@ -427,7 +427,7 @@ class AutoShaderTool(QDialog):
                 getattr(self, f"update_{fieldName}PathEdit").setText(path)
                 found.append(texType)
         
-        # Only show message if textures found or error
+        # Error management
         if found:
             self.updateUpdateStatus(f"Found {len(found)} textures for update")
         else:
@@ -467,7 +467,7 @@ class AutoShaderTool(QDialog):
             self.shaderCreator.textureManager.textureDirectory = self.textureDirectory
             material = self.shaderCreator.createShaderNetwork(materialName, selection)
             
-            # Success message handled by shader creator
+            # Success message 
             self.updateStatus(f"Material '{material}' created successfully!")
         except Exception as e:
             self.updateStatus(f"Error: {str(e)}")
