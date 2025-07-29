@@ -128,12 +128,12 @@ class ArnoldShaderCreator:
         cmds.setAttr(fileNode + ".fileTextureName", texturePath, type="string")
         cmds.setAttr(fileNode + ".uvTilingMode", 3 if self.useUdimMode else 0)
         
-        # Direct place2d connection (simplified)
+        # Direct connection 
         place2d = cmds.shadingNode('place2dTexture', asUtility=True, name=f"{shaderName}_{texType}_place2d")
         cmds.connectAttr(place2d + ".outUV", fileNode + ".uvCoord")
         cmds.connectAttr(place2d + ".outUvFilterSize", fileNode + ".uvFilterSize")
         
-        # Connection logic based on texture type
+        # Connection based on texture type
         if texType == 'baseColor':
             cmds.setAttr(fileNode + ".colorSpace", "sRGB", type="string")
             cmds.connectAttr(fileNode + ".outColor", material + ".baseColor")
